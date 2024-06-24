@@ -34,7 +34,7 @@
 
     "custom/power_btn": {
         "format": " ",
-        "on-click": "zsh -c die & disown",
+        "on-click": "sh -c die & disown",
         "tooltip": false
     },
 
