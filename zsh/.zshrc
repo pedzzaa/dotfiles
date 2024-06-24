@@ -34,35 +34,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-### KEYBINDINGS ###
-
-# Keybinding funcitons
-nvim_fzf(){
-    zle -I
-    file=$(find . -type f -name "*" | fzf)
-    if [ -n "$file" ]; then
-        nvim "$file"
-    fi
-}
-zle -N nvim_fzf
-
-tmux_project(){
-    zle -I
-    project_dir=$(find . -type d -name "*" | fzf)
-    session_name=$(basename "$project_dir")
-    if [ -n "$project_dir" ]; then
-        tmux new-session -c "$project_dir" -s "$session_name"
-    fi
-}
-zle -N tmux_project
-
-# Actual keybindings
-bindkey '^n' history-search-forward                 # History command search forward
-bindkey '^p' history-search-backward                # History command search backward
-bindkey '^f' nvim_fzf                               # Search with fzf and open in neovim
-bindkey '^t' tmux_project                           # Search with fzf and open in tmux
-
-
 ### HISTORY ###
 HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=1000
@@ -76,12 +47,46 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+
+### KEYBINDINGS ###
+
+# Keybinding funcitons
+function nvim_fzf(){
+    zle -I
+    file=$(find . -type f -name "*" | fzf)
+    if [ -n "$file" ]; then
+        nvim "$file"
+    fi
+}
+zle -N nvim_fzf
+
+function tmux_project(){
+    zle -I
+    project_dir=$(find . -type d -name "*" | fzf)
+    session_name=$(basename "$project_dir")
+    if [ -n "$project_dir" ]; then
+        (
+            exec </dev/tty
+            exec <&1
+            tmux new-session -c "$project_dir" -s "$session_name"
+        )
+    fi
+}
+zle -N tmux_project
+
+# Actual keybindings
+bindkey '^n' history-search-forward                 # History command search forward
+bindkey '^p' history-search-backward                # History command search backward
+bindkey '^f' nvim_fzf                               # Search with fzf and open in neovim
+bindkey '^t' tmux_project                           # Search with fzf and open in tmux
+
+
 ### ALIASES ###
 alias ls='ls --human-readable --color=auto'
 alias grep='grep --color=auto'
 alias power="sudo $HOME/scripts/powercfg.sh"
 alias jcompile="$HOME/scripts/compile2j.sh"
-alias die="poweroff"
+alias die="sudo poweroff"
 
 ### LOOK AND FEEL ###
 
