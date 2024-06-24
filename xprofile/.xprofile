@@ -1,0 +1,4 @@
+setxkbmap us
+nitrogen --restore
+picom -f &
+suckless/top-bar/./dwm_bar.sh &
