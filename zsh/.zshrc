@@ -2,6 +2,7 @@
 # Petar Dj ZSH configuration
 #
 
+
 ### PACKAGE MANAGER ZINIT ###
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -48,7 +49,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-
 ### KEYBINDINGS ###
 
 # Keybinding funcitons
@@ -59,13 +59,14 @@ function nvim_fzf(){
         nvim "$file"
     fi
 }
-zle -N nvim_fzf
+zle -N nvim_fzf         # Create widget
 
 function tmux_project(){
     zle -I
     project_dir=$(find . -type d -name "*" | fzf)
     session_name=$(basename "$project_dir")
     if [ -n "$project_dir" ]; then
+        # Initialize subshell correctly
         (
             exec </dev/tty
             exec <&1
@@ -73,14 +74,13 @@ function tmux_project(){
         )
     fi
 }
-zle -N tmux_project
+zle -N tmux_project # Create widget
 
 # Actual keybindings
 bindkey '^n' history-search-forward                 # History command search forward
 bindkey '^p' history-search-backward                # History command search backward
 bindkey '^f' nvim_fzf                               # Search with fzf and open in neovim
 bindkey '^t' tmux_project                           # Search with fzf and open in tmux
-
 
 ### ALIASES ###
 alias ls='ls --human-readable --color=auto'

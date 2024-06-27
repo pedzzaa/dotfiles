@@ -22,6 +22,7 @@ local languages = {
     { 'clangd', require('lspconfig').clangd },
     { 'html', require('lspconfig').html },
     { 'rust_analyzer', require('lspconfig').rust_analyzer },
+    { 'zls', require('lspconfig').zls },
 }
 
 -- Define common options and capabilities
