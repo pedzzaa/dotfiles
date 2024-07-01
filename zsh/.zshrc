@@ -2,7 +2,6 @@
 # Petar Dj ZSH configuration
 #
 
-
 ### PACKAGE MANAGER ZINIT ###
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -30,11 +29,33 @@ _comp_options+=(globdots) # Include hidden files
 bindkey -v
 export KEYTIMEOUT=1
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
+
 ### USE VIM KEYS IN AUTOCOMPLETE MENU ###
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
+bindkey -v '^?' backward-delete-char # When in vi mode cursor thing brakes deleting characters backwards. This fixes it.
 
 ### HISTORY ###
 HISTFILE=~/.cache/zsh/histfile
@@ -54,7 +75,7 @@ setopt hist_find_no_dups
 # Keybinding funcitons
 function nvim_fzf(){
     zle -I
-    file=$(find . -type f -name "*" | fzf)
+    file=$(find . -type f -iname "*" | fzf)
     if [ -n "$file" ]; then
         nvim "$file"
     fi
@@ -63,7 +84,7 @@ zle -N nvim_fzf         # Create widget
 
 function tmux_project(){
     zle -I
-    project_dir=$(find . -type d -name "*" | fzf)
+    project_dir=$(find . -type d -iname "*" | fzf)
     session_name=$(basename "$project_dir")
     if [ -n "$project_dir" ]; then
         # Initialize subshell correctly
@@ -88,6 +109,7 @@ alias grep='grep --color=auto'
 alias power="sudo $HOME/scripts/powercfg.sh"
 alias jcompile="$HOME/scripts/compile2j.sh"
 alias die="sudo poweroff"
+alias reboot="sudo reboot"
 
 ### LOOK AND FEEL ###
 
