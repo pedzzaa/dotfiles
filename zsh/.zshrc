@@ -42,11 +42,13 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
+
 zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
+
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 
@@ -114,7 +116,7 @@ alias reboot="sudo reboot"
 ### LOOK AND FEEL ###
 
 # Useless ASCII at startup
-words=("I use arch btw" "GNU/Linux" "This is zsh" "Oh hell no" "Okay" "Hacker" "Ubuntu Noob" "FOSS")		# Define array of strings
+words=("I use artix btw" "GNU/Linux" "This is zsh" "Oh hell no" "Okay" "Hacker" "Ubuntu Noob" "FOSS")		# Define array of strings
 random_index=$(( 1 + RANDOM % "${#words[@]}" ))                                                             # Pick random index
 figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat							                        # ASCII art at the start
 
