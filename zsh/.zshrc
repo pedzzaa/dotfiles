@@ -99,11 +99,28 @@ function tmux_project(){
 }
 zle -N tmux_project # Create widget
 
+function zellij_project(){
+    zle -I
+    project_dir=$(find . -type d -iname "*" | fzf)
+    session_name=$(basename "$project_dir")
+    if [ -n "$project_dir" ]; then
+        # Change to the selected project directory and start zellij
+        (
+            cd "$project_dir"
+            exec </dev/tty
+            exec <&1
+            exec zellij -s "$session_name"
+        )
+    fi
+}
+zle -N zellij_project # Create widget
+
 # Actual keybindings
 bindkey '^n' history-search-forward                 # History command search forward
 bindkey '^p' history-search-backward                # History command search backward
 bindkey '^f' nvim_fzf                               # Search with fzf and open in neovim
 bindkey '^t' tmux_project                           # Search with fzf and open in tmux
+bindkey '^z' zellij_project                         # Search with fzf and open in zellij
 
 ### ALIASES ###
 alias ls='ls --human-readable --color=auto'
