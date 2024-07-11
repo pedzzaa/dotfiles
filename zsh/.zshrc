@@ -106,9 +106,9 @@ function zellij_project(){
     if [ -n "$project_dir" ]; then
         # Change to the selected project directory and start zellij
         (
-            cd "$project_dir"
             exec </dev/tty
             exec <&1
+            cd "$project_dir"
             exec zellij -s "$session_name"
         )
     fi
@@ -129,6 +129,7 @@ alias power="sudo $HOME/scripts/powercfg.sh"
 alias jcompile="$HOME/scripts/compile2j.sh"
 alias die="sudo poweroff"
 alias reboot="sudo reboot"
+
 
 ### LOOK AND FEEL ###
 
