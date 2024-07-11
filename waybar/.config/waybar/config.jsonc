@@ -63,7 +63,7 @@
         "on-click": "kitty --start-as=fullscreen --title htop sh -c 'htop'"
     },
 
-    "hyprland/workspaces": {
+    "wlr/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
@@ -95,12 +95,11 @@
 
     "clock": {
         "tooltip": true,
-        "format": "{:%I:%M %p}",
-        "tooltip-format": "{: %A, %B %e %Y}"    
+        "format": "{:%H:%M   %A, %B %e %Y}",
     },
 
     "backlight": {
-        "device": "intel_backlight",
+        "device": "amdgpu",
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set 5%+",
