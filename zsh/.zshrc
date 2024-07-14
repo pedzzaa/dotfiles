@@ -127,14 +127,14 @@ alias ls='ls --human-readable --color=auto'
 alias grep='grep --color=auto'
 alias power="sudo $HOME/scripts/powercfg.sh"
 alias jcompile="$HOME/scripts/compile2j.sh"
-alias die="sudo poweroff"
-alias reboot="sudo reboot"
+alias die="poweroff"
+alias reboot="reboot"
 
 
 ### LOOK AND FEEL ###
 
 # Useless ASCII at startup
-words=("I use artix btw" "GNU/Linux" "This is zsh" "Oh hell no" "Okay" "Hacker" "Ubuntu Noob" "FOSS")		# Define array of strings
+words=("I use arch btw" "GNU/Linux" "This is zsh" "Oh hell no" "Okay" "Hacker" "Ubuntu Noob" "FOSS")		# Define array of strings
 random_index=$(( 1 + RANDOM % "${#words[@]}" ))                                                             # Pick random index
 figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat							                        # ASCII art at the start
 
