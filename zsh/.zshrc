@@ -109,7 +109,7 @@ function zellij_project(){
             exec </dev/tty
             exec <&1
             cd "$project_dir"
-            exec zellij -s "$session_name"
+            exec zellij -s "$session_name" --layout ~/.config/zellij/devlayout.kdl
         )
     fi
 }
