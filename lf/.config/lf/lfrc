@@ -26,7 +26,7 @@ cmd mkdir ${{
 cmd mkfile ${{
     printf "File name: "
     read file_name
-    mkdir $file_name
+    touch $file_name
 }}
 
 cmd extract ${{
