@@ -12,11 +12,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 15;        /* 2 is the default spacing around the bar's font */
 
 /* System tray */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;           /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
+static const unsigned int systraypinning    = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft     = 0;           /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing    = 2;   /* systray spacing */
+static const int systraypinningfailfirst    = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray                = 1;     /* 0 means no systray */
 
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Bold:size=12" };
 
@@ -76,8 +76,10 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *roficmd[]  = { "rofi", "-show", "drun", NULL };
-static const char *termcmd[]  = { "st", NULL };
+// static const char *roficmd[]     = { "rofi", "-show", "drun", NULL }; 
+static char dmenumon[2]             = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]        = { "st", NULL };
 
 /* Constants for volume control */
 static const char *upvol[]          = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
@@ -88,18 +90,21 @@ static const char *mutevol[]        = { "/usr/bin/pactl", "set-sink-mute", "@DEF
 static const char *upbright[]       = { "brightnessctl", "set", "5%+", NULL };
 static const char *downbright[]     = { "brightnessctl", "set", "5%-", NULL };
 
-/* Thunar spawn */
+/* Programs */
+static const char *chromium[]       = { "chromium", NULL };
 static const char *thunar[]         = { "thunar", NULL };
 
 /* Change keyboard layout */
-static const char *keymap[]         = { "/home/petar/suckless/keyboard/layout", NULL };
+static const char *keymap[]         = { "kb_layout", NULL };
 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
+	// { MODKEY,                       XK_space,  spawn,          {.v = roficmd } }, // If you want to use rofi
+    { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                    XK_c,      spawn,          {.v = termcmd } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
+	{ MODKEY,	                    XK_w,      spawn,          {.v = chromium } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

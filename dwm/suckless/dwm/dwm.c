@@ -1,7 +1,9 @@
 /*
  *
- * Lines on which I have made changes
- * 1495 - for always displaying useless gap
+ * Lines on which I have made changes 1485
+ *
+ * Uncomment line 1487 and 1488 if you want to always display useless gap 
+ * and comment that if else statement above them
  *
  *
  */
@@ -1894,6 +1896,8 @@ spawn(const Arg *arg)
 {
 	struct sigaction sa;
 
+	if (arg->v == dmenucmd)
+		dmenumon[0] = '0' + selmon->num;
 	if (fork() == 0) {
 		if (dpy)
 			close(ConnectionNumber(dpy));
