@@ -23,7 +23,6 @@ local languages = {
     { 'html', require('lspconfig').html },
     { 'rust_analyzer', require('lspconfig').rust_analyzer },
     { 'zls', require('lspconfig').zls },
-    { 'arduino_language_server', require('lspconfig').arduino_language_server },
 }
 
 -- Define common options and capabilities
