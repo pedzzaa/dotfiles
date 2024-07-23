@@ -76,7 +76,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-// static const char *roficmd[]     = { "rofi", "-show", "drun", NULL }; 
+static const char *roficmd[]        = { "rofi", "-show", "drun", NULL }; // if you want to use rofi
 static char dmenumon[2]             = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]        = { "st", NULL };
@@ -100,7 +100,7 @@ static const char *keymap[]         = { "kb_layout", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	// { MODKEY,                       XK_space,  spawn,          {.v = roficmd } }, // If you want to use rofi
+	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
     { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                    XK_c,      spawn,          {.v = termcmd } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
