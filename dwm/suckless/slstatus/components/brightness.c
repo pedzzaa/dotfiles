@@ -7,7 +7,7 @@
 
 const char *
 brightness(const char *unused) {
-    static char bright[8];
+    static char bright[9];
     int current_state;
     FILE *file = fopen("/sys/class/backlight/amdgpu_bl1/brightness", "r");
 
@@ -15,13 +15,13 @@ brightness(const char *unused) {
         return NULL;
     }
 
-    if(fscanf(file, "%d", &current_state) != 1) {
+    if(fscanf(file, "%i", &current_state) != 1) {
         fclose(file);
         return NULL;
     }
 
     int brightness_percentage = (current_state * 100) / MAX_BRIGHT;
-    snprintf(bright, sizeof(bright), "%d", brightness_percentage);
+    snprintf(bright, sizeof(bright), "%i", brightness_percentage);
 
     return bprintf(bright);
 }

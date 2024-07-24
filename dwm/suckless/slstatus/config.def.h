@@ -65,7 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format */                       /* argument */
-    { keymap,           " | ⌨ %s",                  NULL                },
+    { keymap,           "⌨ %s",                     NULL                },
     { cpu_perc,         " |  %s%%",                NULL                },
     { ram_used,         " |  %s",                  NULL                },
     { wifi_essid,       " | 🌐 %s",                 "wlp2s0"            },
