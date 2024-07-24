@@ -33,6 +33,7 @@ pipe_volume(const char *unused) {
         return bprintf("Error reading level");
     }
 
+    pclose(cmd);
     vol[strcspn(vol, "\n")] = '\0';
     return bprintf("🔊 %s%%", vol);
 }

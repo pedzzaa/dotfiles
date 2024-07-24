@@ -19,7 +19,8 @@ brightness(const char *unused) {
         fclose(file);
         return NULL;
     }
-
+    
+    fclose(file);
     int brightness_percentage = (current_state * 100) / MAX_BRIGHT;
     snprintf(bright, sizeof(bright), "%i", brightness_percentage);
 
