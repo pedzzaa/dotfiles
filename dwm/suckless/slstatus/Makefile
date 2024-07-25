@@ -28,7 +28,6 @@ COM =\
 	components/uptime\
 	components/user\
 	components/volume\
-	components/pipe_volume\
 	components/wifi
 
 all: slstatus
