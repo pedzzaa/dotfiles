@@ -69,7 +69,7 @@ static const struct arg args[] = {
     { cpu_perc,         " |  %s%%",                NULL                    },
     { ram_used,         " |  %s",                  NULL                    },
     { wifi_icons,       " | %s",                    "wlp2s0"                },
-    { brightness,       " | ☀ %s%%",                NULL                    },
+    { brightness,       " | 💡 %s%%",                NULL                    },
     { volume,           " | %s",                    NULL                    },
     { battery_state,    " | %s🔋",                  "BAT0"                  },
     { battery_perc,     " %s%%",                    "BAT0"                  },
