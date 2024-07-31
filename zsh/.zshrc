@@ -2,6 +2,9 @@
 # Petar Dj ZSH configuration
 #
 
+### EXPORT EDITOR ###
+export EDITOR="nvim"
+
 ### PACKAGE MANAGER ZINIT ###
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -60,10 +63,20 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -v '^?' backward-delete-char # When in vi mode cursor thing brakes deleting characters backwards. This fixes it.
 
 ### HISTORY ###
-HISTFILE=~/.cache/zsh/histfile
+HISTDIR=~/.cache/zsh
+HISTFILE=$HISTDIR/histfile
 HISTSIZE=1000
 SAVEHIST=5000
 HISTDUP=erase
+
+if [[ ! -d $HISTDIR ]]; then
+    mkdir -p $HISTDIR
+fi
+
+if [[ ! -f $HISTFILE ]]; then
+    touch $HISTFILE
+fi
+
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space

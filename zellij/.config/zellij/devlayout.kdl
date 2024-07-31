@@ -14,7 +14,7 @@ layout{
             pane split_direction="horizontal" {
                 pane {
                     name "Files"
-                    command "lf"
+                    command "yazi"
                 }
 
                 pane {

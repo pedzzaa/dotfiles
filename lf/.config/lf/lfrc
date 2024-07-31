@@ -40,6 +40,9 @@ cmd extract ${{
     esac
 }}
 
+# Open file in Neovim
+map e $nvim "$f"
+
 # Keyboard shortcuts
 map ae extract
 map af mkfile
@@ -51,3 +54,6 @@ map gd cd ~/Desktop
 map gp cd ~/Pictures
 map gc cd ~/.config
 map gv cd ~/Videos
+
+# Clear clipboard
+map C :clear
