@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include <ifaddrs.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
@@ -8,6 +9,11 @@
 
 #include "../slstatus.h"
 #include "../util.h"
+
+const char* noWifi = "🌐";
+const char* icons[] = { "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 " };
+
+#define NUM_ICONS (sizeof(icons) / sizeof(icons[0]))
 
 #define RSSI_TO_PERC(rssi) \
 			rssi >= -50 ? 100 : \
@@ -64,6 +70,25 @@
 		/* 70 is the max of /proc/net/wireless */
 		return bprintf("%d", (int)((float)cur / 70 * 100));
 	}
+
+    const char* 
+    wifi_icons(const char *interface)
+    {
+        const char* wifiStrength = wifi_perc(interface);
+    
+        if (wifiStrength == NULL) {
+            return noWifi;
+        }
+    
+        int percentage = atoi(wifiStrength);
+        unsigned long int index = (percentage / 20);
+
+        if (index >= NUM_ICONS) {
+            index = NUM_ICONS - 1;
+        }
+    
+        return bprintf("%s %d%%", icons[index], percentage);
+    }
 
 	const char *
 	wifi_essid(const char *interface)

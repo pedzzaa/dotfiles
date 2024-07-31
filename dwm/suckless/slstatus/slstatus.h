@@ -85,3 +85,4 @@ const char *volume(const char *unused);
 /* wifi */
 const char *wifi_essid(const char *interface);
 const char *wifi_perc(const char *interface);
+const char *wifi_icons(const char *interface);
