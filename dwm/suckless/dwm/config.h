@@ -91,8 +91,9 @@ static const char *upbright[]       = { "brightnessctl", "set", "5%+", NULL };
 static const char *downbright[]     = { "brightnessctl", "set", "5%-", NULL };
 
 /* Programs */
-static const char *firefox[]       = { "firefox", NULL };
+static const char *firefox[]        = { "firefox", NULL };
 static const char *thunar[]         = { "thunar", NULL };
+static const char *kitty[]          = { "kitty", NULL };
 
 /* Change keyboard layout */
 static const char *keymap[]         = { "kb_layout", NULL };
@@ -103,6 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
     { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                    XK_c,      spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,	            XK_k,      spawn,          {.v = kitty } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
 	{ MODKEY,	                    XK_w,      spawn,          {.v = firefox } },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },

@@ -1,4 +1,3 @@
-require('core.keymaps')
-require('core.plugins')
-require('core.plugin_config')
-require('core.looks')
+require("config.keymaps")
+require("config.looks")
+require("config.lazy")
