@@ -18,7 +18,7 @@ vim.opt.expandtab = true
 
 -- spawn stuff
 vim.keymap.set("n", "<leader>l", ":Lazy<CR>")
-vim.keymap.set("n", "<leader>dd", ":Dashboard<CR>")
+vim.keymap.set("n", "<leader>db", ":Dashboard<CR>")
 
 -- center and go to end
 vim.keymap.set("n", "G", "Gzz")
