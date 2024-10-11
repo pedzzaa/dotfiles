@@ -135,8 +135,10 @@ bindkey '^z' zellij_project                         # Search with fzf and open i
 ### ALIASES ###
 alias ls='ls --human-readable --color=auto'
 alias grep='grep --color=auto'
+alias cleardirs="while popd >/dev/null 2>&1; do :; done"
 alias power="sudo $HOME/scripts/powercfg.sh"
 alias jcompile="$HOME/scripts/compile2j.sh"
+alias rec="$HOME/scripts/rec.sh"
 alias die="poweroff"
 alias reboot="reboot"
 
@@ -144,10 +146,9 @@ alias reboot="reboot"
 ### LOOK AND FEEL ###
 
 # Useless ASCII at startup
-words=("I use arch btw" "GNU/Linux" "This is zsh" "Oh hell no" "Okay" "Hacker" "Ubuntoo" "FOSS")	# Define array of strings
-random_index=$(( 1 + RANDOM % "${#words[@]}" ))                                                     # Pick random index
-figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat							                # ASCII art at the start
+words=("I use arch btw" "GNU/Linux" "This is zsh" "Toxic" "Okay" "Hacker" "Ubuntoo" "FOSS")	    # Define array of strings
+random_index=$(( 1 + RANDOM % "${#words[@]}" ))                                                 # Pick random index
+figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat							            # ASCII art at the start
 
 # Starship prompt
 eval "$(starship init zsh)"
-eval $(thefuck --alias)
