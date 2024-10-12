@@ -9,7 +9,7 @@ static const unsigned int gappx     = 12;      /* gaps between windows */
 static const unsigned int snap      = 32;      /* snap pixel */
 static const int showbar            = 1;       /* 0 means no bar */
 static const int topbar             = 1;       /* 0 means bottom bar */
-static const int user_bh            = 15;      /* 2 is the default spacing around the bar's font */
+static const int user_bh            = 12;      /* 2 is the default spacing around the bar's font */
 
 /* System tray */
 static const unsigned int systraypinning    = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -21,15 +21,15 @@ static const int showsystray                = 1;   /* 0 means no systray */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Bold:size=12" };
 
 //background color
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#13294B"; // #13294B previous #222222
 //inactive window border color
 static const char col_gray2[]       = "#444444";
 //font color
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#bdbdbd"; // previous #bbbbbb
 //current tag and current window font
-static const char col_gray4[]       = "#262626";
+static const char col_gray4[]       = "#13294B"; // previous #262626
 //Top bar second color and active window border color
-static const char col_cyan[]        = "#F6BE00";
+static const char col_cyan[]        = "#9DB9D5"; // #9DB9D5 or #7A98B3 previous #F6BE00
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
