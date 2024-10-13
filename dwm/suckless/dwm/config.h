@@ -21,7 +21,7 @@ static const int showsystray                = 1;   /* 0 means no systray */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Bold:size=12" };
 
 //background color
-static const char col_gray1[]       = "#13294B"; // #13294B previous #222222
+static const char col_gray1[]       = "#13294B"; // previous #222222
 //inactive window border color
 static const char col_gray2[]       = "#444444";
 //font color
@@ -29,7 +29,7 @@ static const char col_gray3[]       = "#bdbdbd"; // previous #bbbbbb
 //current tag and current window font
 static const char col_gray4[]       = "#13294B"; // previous #262626
 //Top bar second color and active window border color
-static const char col_cyan[]        = "#9DB9D5"; // #9DB9D5 or #7A98B3 previous #F6BE00
+static const char col_cyan[]        = "#9DB9D5"; // previous #F6BE00
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -51,10 +51,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact        = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster        = 1;    /* number of clients in master area */
+static const int resizehints    = 0;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -82,9 +82,9 @@ static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, "-nb", col_
 static const char *termcmd[]        = { "st", NULL };
 
 /* Constants for volume control */
-static const char *upvol[]          = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
-static const char *downvol[]        = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
-static const char *mutevol[]        = { "/usr/bin/pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *upvol[]          = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *downvol[]        = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *mutevol[]        = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 
 /* Constants for brightness control */
 static const char *upbright[]       = { "brightnessctl", "set", "5%+", NULL };
@@ -95,11 +95,10 @@ static const char *firefox[]        = { "firefox", NULL };
 static const char *brave[]          = { "brave", NULL };
 static const char *thunar[]         = { "thunar", NULL };
 static const char *passmenu[]       = { "passmenu", NULL };
-static const char *wezterm[]          = { "wezterm", NULL }; // Using it just for development... Much better glyph and ligature support.
+static const char *wezterm[]        = { "wezterm", NULL }; // Why not have another one...
 
 /* Change keyboard layout */
 static const char *keymap[]         = { "kb_layout", NULL };
-
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -150,7 +149,7 @@ static const Key keys[] = {
     /* Brightness control keys */
     { 0,             XF86XK_MonBrightnessUp,   spawn,          {.v = upbright } },
 	{ 0,             XF86XK_MonBrightnessDown, spawn,          {.v = downbright } },
-    { MODLAY,                       XK_space,  spawn,          {.v = keymap }}
+    { MODLAY,        XK_space,                 spawn,          {.v = keymap }}
 };
 
 /* button definitions */
@@ -169,4 +168,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
