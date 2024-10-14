@@ -11,10 +11,9 @@ VIDEO_OUTPUT="$HOME/Videos/output.mp4"
 
 # Audio device
 # I use pipewire because I have Hyprland along with DWM.
-echo "If you're using PulseAudio, you can set 'AUDIO_SOURCE' to 'default'"
 echo "You can run 'pactl list sources short' to see available audio sources"
-echo -e "In my case it is 54\n"
-AUDIO_SOURCE=54
+echo -e "In my case it is 0\n"
+AUDIO_SOURCE=0
 
 read -p "Enter framerate (default $FPS): " input
 FPS=${input:-$FPS}
