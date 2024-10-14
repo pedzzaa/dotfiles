@@ -148,7 +148,7 @@ alias reboot="reboot"
 # Useless ASCII at startup
 words=("I use arch btw" "Winter" "GNU/Linux" "This is zsh" "Toxic" "Okay" "Hacker" "Ubuntoo" "FOSS")	# Define array of strings
 random_index=$(( 1 + RANDOM % "${#words[@]}" ))                                                         # Pick random index
-figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat							                    # ASCII art at the start
+figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat --seed 8                                     # ASCII art at the start
 
 # Starship prompt
 eval "$(starship init zsh)"
