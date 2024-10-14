@@ -1,7 +1,5 @@
 tmux/.config/tmux/plugins/
 dwm/suckless/dmenu/dmenu
-dwm/suckless/dmenu/dmenu_run
-dwm/suckless/dmenu/dmenu_path
 dwm/suckless/dmenu/stest
 dwm/suckless/dmenu/*.o
 dwm/suckless/dwm/dwm
