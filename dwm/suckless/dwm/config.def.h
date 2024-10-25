@@ -95,7 +95,7 @@ static const char *firefox[]        = { "firefox", NULL };
 static const char *brave[]          = { "brave", NULL };
 static const char *thunar[]         = { "thunar", NULL };
 static const char *passmenu[]       = { "passmenu", NULL };
-static const char *wezterm[]        = { "wezterm", NULL }; // Why not have another one...
+static const char *kitty[]          = { "kitty", NULL }; // Why not have another one...
 
 /* Change keyboard layout */
 static const char *keymap[]         = { "kb_layout", NULL };
@@ -106,7 +106,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenu } },
     { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                    XK_c,      spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,	            XK_k,      spawn,          {.v = wezterm } },
+	{ MODKEY|ShiftMask,	            XK_k,      spawn,          {.v = kitty } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
 	{ MODKEY,	                    XK_w,      spawn,          {.v = firefox } },
 	{ MODKEY,	                    XK_b,      spawn,          {.v = brave } },

@@ -136,7 +136,7 @@ bindkey '^z' zellij_project                         # Search with fzf and open i
 alias ls='ls --human-readable --color=auto'
 alias grep='grep --color=auto'
 alias cleardirs="while popd >/dev/null 2>&1; do :; done"
-alias power="sudo $HOME/scripts/powercfg.sh"
+alias clock="sudo $HOME/scripts/powercfg.sh"
 alias jcompile="$HOME/scripts/compile2j.sh"
 alias rec="$HOME/scripts/rec.sh"
 alias die="poweroff"
