@@ -20,16 +20,34 @@ static const int showsystray                = 1;   /* 0 means no systray */
 
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Bold:size=12" };
 
+// Summer colors
+// col_gray1 = "#222222"
+// col_gray3 = "#bbbbbb"
+// col_gray4 = "#262626"
+// col_cyan  = "#f6be00"
+
+// Winter colors
+// col_gray1 = "#13294B"
+// col_gray3 = "#bdbdbd"
+// col_gray4 = "#13294B"
+// col_cyan  = "#9DB9D5"
+
+// Autumn colors
+// col_gray1 = "#394A2E"
+// col_gray3 = "#bdbdbd"
+// col_gray4 = "#394A2E"
+// col_cyan  = "#B2BA68"
+
 //background color
-static const char col_gray1[]       = "#13294B"; // previous #222222
+static const char col_gray1[]       = "#394A2E";
 //inactive window border color
 static const char col_gray2[]       = "#444444";
 //font color
-static const char col_gray3[]       = "#bdbdbd"; // previous #bbbbbb
+static const char col_gray3[]       = "#bdbdbd";
 //current tag and current window font
-static const char col_gray4[]       = "#13294B"; // previous #262626
+static const char col_gray4[]       = "#394A2E";
 //Top bar second color and active window border color
-static const char col_cyan[]        = "#9DB9D5"; // previous #F6BE00
+static const char col_cyan[]        = "#B2BA68";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -91,7 +109,7 @@ static const char *upbright[]       = { "brightnessctl", "set", "5%+", NULL };
 static const char *downbright[]     = { "brightnessctl", "set", "5%-", NULL };
 
 /* Programs */
-static const char *firefox[]        = { "firefox", NULL };
+static const char *zen[]            = { "zen-browser", NULL };
 static const char *brave[]          = { "brave", NULL };
 static const char *thunar[]         = { "thunar", NULL };
 static const char *passmenu[]       = { "passmenu", NULL };
@@ -108,7 +126,7 @@ static const Key keys[] = {
 	{ MODKEY,	                    XK_c,      spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,	            XK_k,      spawn,          {.v = kitty } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
-	{ MODKEY,	                    XK_w,      spawn,          {.v = firefox } },
+	{ MODKEY,	                    XK_w,      spawn,          {.v = zen } },
 	{ MODKEY,	                    XK_b,      spawn,          {.v = brave } },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
