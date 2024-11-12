@@ -142,11 +142,13 @@ alias rec="$HOME/scripts/rec.sh"
 alias die="poweroff"
 alias reboot="reboot"
 
+### EXPORTS ###
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 ### LOOK AND FEEL ###
 
 # Useless ASCII at startup
-words=("I use arch btw" "Winter" "GNU/Linux" "This is zsh" "Toxic" "Okay" "Hacker" "Ubuntoo" "FOSS")	# Define array of strings
+words=("I use arch btw" "Autumn" "GNU/Linux" "This is zsh" "Toxic" "Okay" "Hacker" "Ubuntoo" "FOSS")	# Define array of strings
 random_index=$(( 1 + RANDOM % "${#words[@]}" ))                                                         # Pick random index
 figlet -t -c -f ANSI-Shadow $words[$random_index] | lolcat --seed 8                                     # ASCII art at the start
 

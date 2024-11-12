@@ -33,10 +33,10 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Bold:size
 // col_cyan  = "#9DB9D5"
 
 // Autumn colors
-// col_gray1 = "#3E5D3A"
+// col_gray1 = "#394A2E"
 // col_gray3 = "#bdbdbd"
-// col_gray4 = "#3E5D3A"
-// col_cyan  = "#c9cc8e"
+// col_gray4 = "#394A2E"
+// col_cyan  = "#B2BA68"
 
 //background color
 static const char col_gray1[]       = "#394A2E";
@@ -123,7 +123,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenu } },
     { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                    XK_c,      spawn,          {.v = termcmd } },
+	{ MODKEY,	                    XK_Return,  spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,	            XK_k,      spawn,          {.v = kitty } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
 	{ MODKEY,	                    XK_w,      spawn,          {.v = zen } },

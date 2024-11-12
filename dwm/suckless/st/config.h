@@ -109,6 +109,8 @@ unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.6;
+float alphaOffset = 0.0;
+float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -231,6 +233,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_k,           kscrollup,      {.i = scrollInterval } },
 	{ MODKEY,               XK_j,           kscrolldown,    {.i = scrollInterval } },
+    { MODKEY,		        XK_s,		    changealpha,	{.f = -0.05} },
+	{ MODKEY,		        XK_a,		    changealpha,	{.f = +0.05} }
 };
 
 /*
