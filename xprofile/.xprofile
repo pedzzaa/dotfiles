@@ -1,6 +1,6 @@
 setxkbmap us
 # Here I made program that will cycle through wallpapers
-# You can replce this line with nitrogen --restore
+# It uses xwallpaper to set the wallpaper
 slideshow Pictures/WallPaper/Autumn &
 picom -f &
 slstatus &

@@ -4,7 +4,8 @@ dwm/suckless/dmenu/stest
 dwm/suckless/dmenu/*.o
 dwm/suckless/dwm/dwm
 dwm/suckless/dwm/*.o
-dwm/suckless/dwmutils/kb_layout
+dwm/suckless/dwmutils/kblayout/target/
+dwm/suckless/dwmutils/slideshow/target/
 dwm/suckless/slstatus/slstatus
 dwm/suckless/slstatus/*.o
 dwm/suckless/slstatus/components/*.o

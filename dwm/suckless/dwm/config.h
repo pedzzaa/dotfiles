@@ -112,18 +112,18 @@ static const char *downbright[]     = { "brightnessctl", "set", "5%-", NULL };
 static const char *zen[]            = { "zen-browser", NULL };
 static const char *brave[]          = { "brave", NULL };
 static const char *thunar[]         = { "thunar", NULL };
-static const char *passmenu[]       = { "passmenu", NULL };
+static const char *passmenu[]       = { "passmenu", "-sb", col_cyan, "-nb", col_gray4, "-nf", col_gray3, "-sf", col_gray4, NULL };
 static const char *kitty[]          = { "kitty", NULL }; // Why not have another one...
 
 /* Change keyboard layout */
-static const char *keymap[]         = { "kb_layout", NULL };
+static const char *keymap[]         = { "kblayout", "us", "me", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenu } },
     { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                    XK_Return,  spawn,          {.v = termcmd } },
+	{ MODKEY,	                    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,	            XK_k,      spawn,          {.v = kitty } },
 	{ MODKEY,	                    XK_e,      spawn,          {.v = thunar } },
 	{ MODKEY,	                    XK_w,      spawn,          {.v = zen } },
