@@ -6,4 +6,3 @@ vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#c7c726' })
 
 -- always fat cursor
 vim.opt.guicursor = 'n-v-c-sm-i-ci-ve-r-cr-o:block'
-
